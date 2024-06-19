@@ -4,11 +4,7 @@ pipeline {
  
   tools {nodejs "Node21"}
  
- 
-  environment {
-      CHROME_BIN = '/bin/google-chrome'
-   
-  }
+
   stages {
       stage('Dependencies') {
           steps {
@@ -18,7 +14,7 @@ pipeline {
       stage('Testing') {
             steps {
                 sh "npm ci"
-                sh "npx cypress run"
+                sh "npx cypress run --browser firefox"
             }
       }
       stage('Deploy'){
