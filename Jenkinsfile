@@ -22,13 +22,14 @@ pipeline {
                 sh "npx cypress run"
             }
         }
-  }
-
-  stage('Deploy'){
+      }
+      stage('Deploy'){
             steps {
                 echo "Deploying"
                  
             }
         }
+
+
 }
 }
