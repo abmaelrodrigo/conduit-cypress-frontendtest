@@ -24,7 +24,7 @@ context('Create an article', () => {
     });
 
 
-    it.only('Verify user can create an account', () => {
+    it('Verify user can create an account', () => {
         SignUpPage.creatAnAccount();
         
     })
