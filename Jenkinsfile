@@ -2,7 +2,7 @@ pipeline {
   agent any
  
  
-  tools {nodejs "Node"}
+  tools {nodejs "Node21"}
  
  
   environment {
@@ -15,25 +15,20 @@ pipeline {
               sh 'npm i'
           }
       }
-      stage('e2e Tests') {
-        Parallel{
-            stage('Test 1') {
-                 steps {
-               sh 'npm run cypress:ci'
-                 }
-              }
-           
-            stage('Test 2') {
-                 steps {
-               sh 'npm run cypress2:ci'
-                 }
-              }
-      }
-      stage('Deploy') {
-          steps {
-              echo 'Deploying....'
-          }
-      }
+      stage('Testing') {
+        stage('Testing') {
+            steps {
+                sh "npm ci"
+                sh "npx cypress run"
+            }
+        }
   }
+
+  stage('Deploy'){
+            steps {
+                echo "Deploying"
+                 
+            }
+        }
 }
 }
