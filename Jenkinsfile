@@ -16,19 +16,17 @@ pipeline {
           }
       }
       stage('Testing') {
-        stage('Testing') {
             steps {
                 sh "npm ci"
                 sh "npx cypress run"
             }
-        }
       }
       stage('Deploy'){
             steps {
                 echo "Deploying"
                  
             }
-        }
+      }
 
 
 }
